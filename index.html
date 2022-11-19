@@ -14,11 +14,18 @@
         that we're controlling with VUE
     -->
     <div id="app">
-        <p>{{ title }} -  {{ author }} - {{ age }}</p>
+        <div v-if="showBooks">
+            <p>{{ title }} -  {{ author }} - {{ age }}</p>
+        </div>
 
-        <button v-on:click="age++">Increase age</button>
-        <button v-on:click="age--">Decrease age</button>
-        <div @click="changeTitle('Oathbringer')">Change book title</div>
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+
+        <div v-show="showBooks">
+            currenly showing books
+        </div>
     </div>
     <script src="./app.js"></script>
 </body>
